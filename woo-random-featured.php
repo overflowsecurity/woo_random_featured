@@ -70,7 +70,7 @@ function GetRecentPosts(){
 function SetFeaturedProducts($rand_ids){
 
     global $wpdb;
-    $term = term_exsists('featured');
+    $term = term_exists('featured');
     $tag = array( $term );
     $taxonomy = 'product_visibility';
     $append = True;
