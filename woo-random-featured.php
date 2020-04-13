@@ -39,7 +39,7 @@ global $wpdb;
 $table = "wp_term_relationships";
 $term = term_exists('featured');
 
-$ids = $wpdb->get_col( "SELECT object_id FROM $wpdb->term_relationships WHERE term_taxonomy_id = %d", $term );
+$ids = $wpdb->get_col( "SELECT object_id FROM $wpdb->term_relationships WHERE term_taxonomy_id = " . $term );
 
 if ( count( $ids ) > 0 ) 
     foreach($ids as $id){
