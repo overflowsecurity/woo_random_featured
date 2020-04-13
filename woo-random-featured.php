@@ -80,6 +80,17 @@ function SetFeaturedProducts($rand_ids){
     }
 }
 
+function RunFeatured(){
+    CleanupFeatured();
+    $rand_ids = GetRecentPosts();
+     SetFeaturedProducts($rand_ids);
+}
+
 add_action('admin_menu', 'create_plugin_settings_page');
+add_action( 'on_woo_featured_cron_hook', 'RunFeatured' );
+
+if ( ! wp_next_scheduled( 'on_woo_featured_cron_hook' ) ) {
+    wp_schedule_event( time(), 'five_seconds', 'on_woo_featured_cron_hook' );
+}
 
 ?>
