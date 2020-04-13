@@ -75,6 +75,7 @@ function GetRecentPosts(){
         echo $rand_id;
         echo "<br></br>";
         echo $result[$rand_id]->ID;
+        echo "<br></br>";
     } 
     
 }
