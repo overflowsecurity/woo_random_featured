@@ -38,21 +38,17 @@ function GetFeatured(){
 
 global $wpdb;
 
-$args = array(
-    'post_type' => 'product',
-    'fields'    => 'object_id',
-    'tax_query' => array(
-        array(
-        'taxonomy' => 'featured',
-        'field' => 'term_id',
-        'terms' => 8
-         )
-      )
-    );
 
-$featured_cat = new wp_query($args);
+$ids = $wpdb->get_col( $wpdb->prepare( "SELECT object_id FROM $wpdb->term_relationships WHERE term_taxonomy_id = %d", 8 ) );
 
-var_dump($featured_cat);
+if ( count( $ids ) > 1 ) 
+    return $ids;
+else
+    return $ids[0]
+
+
+
+//var_dump($ids);
 
 
 }
