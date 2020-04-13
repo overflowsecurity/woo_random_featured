@@ -73,8 +73,7 @@ function SetFeaturedProducts($rand_ids){
     $tag = array( 8 );
     foreach ($rand_ids as $id){
         echo $id;
-        echo "<br></br>";
-        //wp_set_post_terms( $id, $tag );
+        wp_set_post_terms( $id, $tag );
     }
 }
 
