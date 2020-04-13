@@ -29,9 +29,6 @@ function plugin_settings_page_content(){
     
     ?><center><h1>WooCommerce Random Featured Products</h1></center><?php
 
-    $timestamp = wp_next_scheduled( 'on_woo_featured_cron_hook' );
-    wp_unschedule_event( $timestamp, 'on_woo_featured_cron_hook' );
-
 }
 
 function CleanupFeatured(){
@@ -89,8 +86,8 @@ function RunFeatured(){
 
 
 add_action('admin_menu', 'create_plugin_settings_page');
-//add_action( 'on_woo_featured_cron_hook2', 'RunFeatured' );
-//add_filter( 'cron_schedules', 'on_add_cron_interval' );
+add_action( 'on_woo_featured_cron_hook', 'RunFeatured' );
+add_filter( 'cron_schedules', 'on_add_cron_interval' );
 /* function on_add_cron_interval( $schedules ) { 
     $schedules['one_week'] = array(
         'interval' => 604800,
@@ -105,8 +102,8 @@ function on_add_cron_interval( $schedules ) {
     return $schedules;
 }
 
-if ( ! wp_next_scheduled( 'on_woo_featured_cron_hook2' ) ) {
-    wp_schedule_event( time(), 'one_week', 'on_woo_featured_cron_hook2' );
+if ( ! wp_next_scheduled( 'on_woo_featured_cron_hook' ) ) {
+    wp_schedule_event( time(), 'one_week', 'on_woo_featured_cron_hook' );
 }
 
 ?>
