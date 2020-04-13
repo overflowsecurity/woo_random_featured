@@ -41,7 +41,7 @@ $table = "wp_term_relationships";
 
 $ids = $wpdb->get_col( "SELECT object_id FROM $wpdb->term_relationships WHERE term_taxonomy_id = 8" );
 
-if ( count( $ids ) > 1 ) 
+if ( count( $ids ) > 0 ) 
     foreach($ids as $id){
         echo $id;
         $wpdb->delete( $table, array( 'object_id' => $id ) );
