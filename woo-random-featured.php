@@ -44,7 +44,17 @@ $args = array(
     )
 );
 
-$featured_cat = new WP_Query($args);
+$featured_cat = get_posts(array(
+    'numberposts'   => -1, // get all posts.
+    'tax_query'     => array(
+        array(
+            'taxonomy'  => 'category',
+            'field'     => 'id',
+            'terms'     => 8,
+        ),
+    ),
+    'fields'        => 'ids', // Only get post IDs
+));
 
 var_dump($featured_cat);
 
