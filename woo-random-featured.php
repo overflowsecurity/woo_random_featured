@@ -45,15 +45,9 @@ $args = array(
 );
 
 $featured_cat = get_posts(array(
-    'numberposts'   => -1, // get all posts.
-    'tax_query'     => array(
-        array(
-            'taxonomy'  => 'category',
-            'field'     => 'id',
-            'terms'     => 8,
-        ),
-    ),
-    'fields'        => 'ids', // Only get post IDs
+    'fields'          => 'ids', // Only get post IDs
+    'posts_per_page'  => -1,
+    'category'        => 8
 ));
 
 var_dump($featured_cat);
