@@ -60,6 +60,7 @@ function GetRecentPosts(){
 
     $result = $wpdb->get_results($query);
     $rand_keys = array_rand($result, 10);
+    var_dump($result);
     foreach($result as $id){
         echo $id->ID;
         echo "<br></br>";
