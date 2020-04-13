@@ -39,16 +39,17 @@ function GetFeatured(){
 global $wpdb;
 
 $args = array(
-    'category__in' => array(
-        '8'
-    )
-);
+    'post_type' => 'product',
+    'tax_query' => array(
+        array(
+        'taxonomy' => 'featured',
+        'field' => 'term_id',
+        'terms' => 8
+         )
+      )
+    );
 
-$featured_cat = get_posts(array(
-    'fields'          => 'ids', // Only get post IDs
-    'posts_per_page'  => -1,
-    'category'        => 8
-));
+$featured_cat = wp_query($args);
 
 var_dump($featured_cat);
 
