@@ -17,7 +17,7 @@ function create_plugin_settings_page()
     $menu_title = 'WooCommerce Random Featured Products';
     $capability = 'manage_options';
     $slug = 'woo_random_featured';
-    $callback = array($this, 'plugin_settings_page_content');
+    $callback = 'plugin_settings_page_content';
     $icon = 'dashicons-admin-plugins';
     $position = 100;   
     add_menu_page($page_title, $menu_title, $capability, $slug, $callback, $icon, $position);
