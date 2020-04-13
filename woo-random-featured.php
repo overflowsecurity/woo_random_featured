@@ -44,7 +44,7 @@ $ids = $wpdb->get_col( "SELECT object_id FROM $wpdb->term_relationships WHERE te
 if ( count( $ids ) > 1 ) 
     foreach($ids as $id){
         echo $id;
-        $wpdb->delete( $table, array( 'object_id' => $$id ) );
+        $wpdb->delete( $table, array( 'object_id' => $id ) );
         
 }
 
