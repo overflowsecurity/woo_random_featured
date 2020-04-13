@@ -29,8 +29,8 @@ function plugin_settings_page_content(){
     
     ?><center><h1>WooCommerce Random Featured Products</h1></center><?php
 
-   GetRecentPosts();
-
+   $rand_ids = GetRecentPosts();
+    SetFeaturedProducts($rand_ids);
 
 }
 
@@ -61,23 +61,20 @@ function GetRecentPosts(){
     $result = $wpdb->get_results($query);
     $rand_keys = array_rand($result, 10);
 
-    foreach($result as $id){
-        echo $id->ID;
-        echo "<br></br>";
-    }
-
-    echo "<br></br>";
-    echo "The chosen ones";
-    echo "<br></br>";
-
      foreach ($rand_keys as $rand_id){
-        //echo $rand_id;
         $randarray[] = $result[$rand_id]->ID;
-/*         echo "<br></br>";
-        echo $result[$rand_id]->ID;
-        echo "<br></br>"; */
     } 
-    var_dump($randarray);
+    return $randarray;
+}
+
+function SetFeaturedProducts($rand_ids){
+
+    global $wpdb;
+    $tag = array( 8 );
+    foreach ($rand_ids as $id){
+        echo $id;
+        //wp_set_post_terms( $id, $tag );
+    }
 }
 
 add_action('admin_menu', 'create_plugin_settings_page');
