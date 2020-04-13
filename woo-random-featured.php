@@ -29,6 +29,7 @@ function plugin_settings_page_content(){
     
     ?><center><h1>WooCommerce Random Featured Products</h1></center><?php
 
+    GetFeatured();
 
 
 }
