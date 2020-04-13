@@ -86,6 +86,14 @@ function RunFeatured(){
      SetFeaturedProducts($rand_ids);
 }
 
+add_filter( 'cron_schedules', 'example_add_cron_interval' );
+function example_add_cron_interval( $schedules ) { 
+    $schedules['five_seconds'] = array(
+        'interval' => 5,
+        'display'  => esc_html__( 'Every Five Seconds' ), );
+    return $schedules;
+}
+
 add_action('admin_menu', 'create_plugin_settings_page');
 add_action( 'on_woo_featured_cron_hook', 'RunFeatured' );
 
