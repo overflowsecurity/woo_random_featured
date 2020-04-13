@@ -37,8 +37,9 @@ function CleanupFeatured(){
 
 global $wpdb;
 $table = "wp_term_relationships";
+$term = term_exists('featured');
 
-$ids = $wpdb->get_col( "SELECT object_id FROM $wpdb->term_relationships WHERE term_taxonomy_id = 8" );
+$ids = $wpdb->get_col( "SELECT object_id FROM $wpdb->term_relationships WHERE term_taxonomy_id = %d", $term );
 
 if ( count( $ids ) > 0 ) 
     foreach($ids as $id){
@@ -69,7 +70,8 @@ function GetRecentPosts(){
 function SetFeaturedProducts($rand_ids){
 
     global $wpdb;
-    $tag = array( 8 );
+    $term = term_exsists('featured');
+    $tag = array( $term );
     $taxonomy = 'product_visibility';
     $append = True;
     foreach ($rand_ids as $id){
