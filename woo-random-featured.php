@@ -29,12 +29,12 @@ function plugin_settings_page_content(){
     
     ?><center><h1>WooCommerce Random Featured Products</h1></center><?php
 
-    GetFeatured();
+   GetRecentPosts();
 
 
 }
 
-function GetFeatured(){
+function CleanupFeatured(){
 
 global $wpdb;
 $table = "wp_term_relationships";
@@ -50,13 +50,21 @@ if ( count( $ids ) > 0 )
 
 else
     echo "No Featured Products :(";
-
-
-
-
-
 }
 
+function GetRecentPosts(){
+
+    global $wpdb;
+
+    $query = "SELECT ID FROM $wpdb->posts ORDER BY ID DESC LIMIT 0,20";
+
+    $result = $wpdb->get_results($query);
+    foreach($result as $id){
+        $row = $result;
+        $id = $row->ID;
+        echo $id;
+    }
+}
 
 add_action('admin_menu', 'create_plugin_settings_page');
 
