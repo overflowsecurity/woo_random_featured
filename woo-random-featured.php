@@ -68,6 +68,7 @@ function GetRecentPosts(){
 
     foreach ($rand_keys as $rand_id){
         echo $rand_id;
+        echo "<br></br>"
     }
     
 }
