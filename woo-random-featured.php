@@ -84,6 +84,9 @@ function RunFeatured(){
      SetFeaturedProducts($rand_ids);
 }
 
+
+add_action('admin_menu', 'create_plugin_settings_page');
+add_action( 'on_woo_featured_cron_hook2', 'RunFeatured' );
 add_filter( 'cron_schedules', 'on_add_cron_interval' );
 function on_add_cron_interval( $schedules ) { 
     $schedules['one_week'] = array(
@@ -91,9 +94,6 @@ function on_add_cron_interval( $schedules ) {
         'display'  => esc_html__( 'Every Week' ), );
     return $schedules;
 }
-
-add_action('admin_menu', 'create_plugin_settings_page');
-add_action( 'on_woo_featured_cron_hook2', 'RunFeatured' );
 
 if ( ! wp_next_scheduled( 'on_woo_featured_cron_hook2' ) ) {
     wp_schedule_event( time(), 'one_week', 'on_woo_featured_cron_hook2' );
