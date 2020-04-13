@@ -29,8 +29,8 @@ function plugin_settings_page_content(){
     
     ?><center><h1>WooCommerce Random Featured Products</h1></center><?php
 
-    $timestamp = wp_next_scheduled( 'on_woo_featured_cron_hook2' );
-    wp_unschedule_event( $timestamp, 'on_woo_featured_cron_hook2' );
+    $timestamp = wp_next_scheduled( 'on_woo_featured_cron_hook' );
+    wp_unschedule_event( $timestamp, 'on_woo_featured_cron_hook' );
 
 }
 
