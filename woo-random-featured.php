@@ -49,6 +49,6 @@ var_dump($featured_cat);
 }
 
 
-add_action('admin_menu', array($this, 'create_plugin_settings_page'));
+add_action('admin_menu', 'create_plugin_settings_page');
 
 ?>
