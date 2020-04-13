@@ -49,7 +49,7 @@ $args = array(
       )
     );
 
-$featured_cat = wp_query($args);
+$featured_cat = new wp_query($args);
 
 var_dump($featured_cat);
 
