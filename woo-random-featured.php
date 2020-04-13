@@ -60,7 +60,7 @@ function GetRecentPosts(){
 
     $result = $wpdb->get_results($query);
     $rand_keys = array_rand($result, 10);
-    var_dump($result);
+
     foreach($result as $id){
         echo $id->ID;
         echo "<br></br>";
@@ -70,14 +70,14 @@ function GetRecentPosts(){
     echo "The chosen ones";
     echo "<br></br>";
 
-    var_dump($rand_keys);
      foreach ($rand_keys as $rand_id){
-        echo $rand_id;
-        echo "<br></br>";
+        //echo $rand_id;
+        $randarray[] = $result[$rand_id]->ID;
+/*         echo "<br></br>";
         echo $result[$rand_id]->ID;
-        echo "<br></br>";
+        echo "<br></br>"; */
     } 
-    
+    var_dump($randarray);
 }
 
 add_action('admin_menu', 'create_plugin_settings_page');
