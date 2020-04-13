@@ -60,7 +60,7 @@ function GetRecentPosts(){
 
     $result = $wpdb->get_results($query);
     foreach($result as $id){
-        echo $id;
+        echo $id->ID;
     }
 }
 
