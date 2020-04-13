@@ -71,10 +71,11 @@ function GetRecentPosts(){
     echo "<br></br>";
 
     var_dump($rand_keys);
-/*     foreach ($rand_keys as $rand_id){
+     foreach ($rand_keys as $rand_id){
         echo $rand_id;
         echo "<br></br>";
-    } */
+        echo $result[$rand_id]->ID;
+    } 
     
 }
 
