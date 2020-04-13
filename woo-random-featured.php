@@ -65,7 +65,7 @@ function GetRecentPosts(){
     }
 
     echo "The chosen ones";
-    echo $rand_id;
+    echo $rand_keys;
 }
 
 add_action('admin_menu', 'create_plugin_settings_page');
