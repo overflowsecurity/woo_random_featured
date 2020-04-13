@@ -39,7 +39,7 @@ function GetFeatured(){
 global $wpdb;
 
 $args = array(
-    'cat' => '27'
+    'cat' => '8'
 );
 
 $featured_cat = new WP_Query($args);
