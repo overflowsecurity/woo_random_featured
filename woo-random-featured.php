@@ -40,7 +40,7 @@ global $wpdb;
 
 $args = array(
     'post_type' => 'product',
-    'fields'    => 'ids',
+    'fields'    => 'object_id',
     'tax_query' => array(
         array(
         'taxonomy' => 'featured',
