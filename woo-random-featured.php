@@ -64,10 +64,8 @@ function GetRecentPosts(){
         echo $id->ID;
     }
 
-    foreach($rand_keys as $rand_id){
-        echo "The chosen ones";
-        echo $rand_id;
-    }
+    echo "The chosen ones";
+    echo $rand_id;
 }
 
 add_action('admin_menu', 'create_plugin_settings_page');
