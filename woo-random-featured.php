@@ -41,10 +41,10 @@ global $wpdb;
 
 $ids = $wpdb->get_col( "SELECT object_id FROM $wpdb->term_relationships WHERE term_taxonomy_id = 8" );
 
-if ( count( $ids ) > 1 ) 
+/* if ( count( $ids ) > 1 ) 
     return $ids;
 else
-    return $ids[0];
+    return $ids[0]; */
 
 
 
