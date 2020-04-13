@@ -44,7 +44,7 @@ $ids = $wpdb->get_col( $wpdb->prepare( "SELECT object_id FROM $wpdb->term_relati
 if ( count( $ids ) > 1 ) 
     return $ids;
 else
-    return $ids[0]
+    return $ids[0];
 
 
 
