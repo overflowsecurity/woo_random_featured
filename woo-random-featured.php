@@ -88,19 +88,12 @@ function RunFeatured(){
 add_action('admin_menu', 'create_plugin_settings_page');
 add_action( 'on_woo_featured_cron_hook', 'RunFeatured' );
 add_filter( 'cron_schedules', 'on_add_cron_interval' );
-/* function on_add_cron_interval( $schedules ) { 
+ function on_add_cron_interval( $schedules ) { 
     $schedules['one_week'] = array(
-        'interval' => 604800,
+        'interval' => 600000,
         'display'  => esc_html__( 'Every Week' ), );
     return $schedules;
-} */
-
-function on_add_cron_interval( $schedules ) { 
-    $schedules['one_week'] = array(
-        'interval' => 5,
-        'display'  => esc_html__( 'Every Week' ), );
-    return $schedules;
-}
+} 
 
 if ( ! wp_next_scheduled( 'on_woo_featured_cron_hook' ) ) {
     wp_schedule_event( time(), 'one_week', 'on_woo_featured_cron_hook' );
