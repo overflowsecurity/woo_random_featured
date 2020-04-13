@@ -48,7 +48,7 @@ else
 
 
 
-//var_dump($ids);
+var_dump($ids);
 
 
 }
