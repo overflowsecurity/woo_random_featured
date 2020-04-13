@@ -71,10 +71,11 @@ function SetFeaturedProducts($rand_ids){
 
     global $wpdb;
     $tag = array( 8 );
+    $taxonomy = 'featured';
     $append = True;
     foreach ($rand_ids as $id){
 
-        wp_set_object_terms( $id, $tag, $append );
+        wp_set_object_terms( $id, $tag, $taxonomy, $append );
     }
 }
 
