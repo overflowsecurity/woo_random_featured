@@ -95,7 +95,7 @@ function example_add_cron_interval( $schedules ) {
 add_action('admin_menu', 'create_plugin_settings_page');
 add_action( 'on_woo_featured_cron_hook2', 'RunFeatured' );
 
-if ( ! wp_next_scheduled( 'on_woo_featured_cron_hook' ) ) {
+if ( ! wp_next_scheduled( 'on_woo_featured_cron_hook2' ) ) {
     wp_schedule_event( time(), 'five_seconds', 'on_woo_featured_cron_hook2' );
 }
 
