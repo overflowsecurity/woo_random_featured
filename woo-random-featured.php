@@ -59,8 +59,14 @@ function GetRecentPosts(){
     $query = "SELECT ID FROM $wpdb->posts ORDER BY ID DESC LIMIT 0,20";
 
     $result = $wpdb->get_results($query);
+    $rand_keys = array_rand($result, 10);
     foreach($result as $id){
         echo $id->ID;
+    }
+
+    foreach($rand_keys as $rand_id){
+        echo "The chosen ones";
+        echo $rand_id;
     }
 }
 
