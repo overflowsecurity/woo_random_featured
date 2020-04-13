@@ -62,10 +62,13 @@ function GetRecentPosts(){
     $rand_keys = array_rand($result, 10);
     foreach($result as $id){
         echo $id->ID;
+        echo "<br></br>";
     }
 
+    echo "<br></br>";
     echo "The chosen ones";
-
+    echo "<br></br>";
+    
     foreach ($rand_keys as $rand_id){
         echo $rand_id;
         echo "<br></br>";
