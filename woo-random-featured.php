@@ -39,7 +39,7 @@ function GetFeatured(){
 global $wpdb;
 
 
-$ids = $wpdb->get_col( $wpdb->prepare( "SELECT object_id FROM $wpdb->term_relationships WHERE term_taxonomy_id = %d", '8' ) );
+$ids = $wpdb->get_col( $wpdb->prepare( "SELECT object_id FROM $wpdb->term_relationships WHERE term_taxonomy_id = 8" ) );
 
 if ( count( $ids ) > 1 ) 
     return $ids;
