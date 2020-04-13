@@ -71,7 +71,7 @@ function SetFeaturedProducts($rand_ids){
 
     global $wpdb;
     $tag = array( 8 );
-    $taxonomy = 'featured';
+    $taxonomy = 'product_visibility';
     $append = True;
     foreach ($rand_ids as $id){
 
