@@ -37,17 +37,19 @@ function plugin_settings_page_content(){
 function GetFeatured(){
 
 global $wpdb;
-
+$table = "wp_term_relationships";
 
 $ids = $wpdb->get_col( "SELECT object_id FROM $wpdb->term_relationships WHERE term_taxonomy_id = 8" );
 
 if ( count( $ids ) > 1 ) 
     foreach($ids as $id){
         echo $id;
+        $wpdb->delete( $table, array( 'object_id' => $$id ) );
+        
 }
 
 else
-    echo $ids[0];
+    echo "No Featured Products :(";
 
 
 
