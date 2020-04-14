@@ -40,6 +40,11 @@ function plugin_settings_page_content(){
     add_action( 'admin_init', 'jt_wrf_admin_settings' );
 }
 
+function jt_wrf_settings_page(){
+
+    add_submenu_page( 'woo_random_featured', 'WooCommerce Random Featured Products Settings', 'Settings', 'manage_options', 'woo_random_featured', 'jt_wrf_settings_page_content' )
+}
+
 function jt_wrf_admin_settings(){
     register_setting( 'jt-wrf-settings', 'how_many_featured' );
     add_settings_section( 'jt-wrf-options', 'WooCommerce Random Featured', 'jt_wrf_options', 'woo_random_featured' );
@@ -106,9 +111,7 @@ function RunFeatured(){
 }
 
 
-add_action('admin_menu', 'create_plugin_settings_page');
-add_action( 'on_woo_featured_cron_hook', 'RunFeatured' );
-add_filter( 'cron_schedules', 'on_add_cron_interval' );
+
  function on_add_cron_interval( $schedules ) { 
     $schedules['one_week'] = array(
         'interval' => 600000,
@@ -120,4 +123,9 @@ if ( ! wp_next_scheduled( 'on_woo_featured_cron_hook' ) ) {
     wp_schedule_event( time(), 'one_week', 'on_woo_featured_cron_hook' );
 }
 
+
+add_action('admin_menu', 'create_plugin_settings_page');
+add_action( 'on_woo_featured_cron_hook', 'RunFeatured' );
+add_filter( 'cron_schedules', 'on_add_cron_interval' );
+add_action( 'admin_menu', 'jt_wrf_settings_page' )
 ?>
