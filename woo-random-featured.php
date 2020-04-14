@@ -37,6 +37,7 @@ function CleanupFeatured(){
 global $wpdb;
 $table = "wp_term_relationships";
 $term = term_exists('featured');
+$tag = array( (int)$term );
 $taxonomy = 'product_visibility';
 
 $ids = $wpdb->get_col( "SELECT object_id FROM $wpdb->term_relationships WHERE term_taxonomy_id = " . $term );
