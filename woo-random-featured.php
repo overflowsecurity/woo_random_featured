@@ -60,7 +60,7 @@ function GetRecentPosts(){
 
     $query = "SELECT ID FROM $wpdb->posts WHERE post_type = 'product' ORDER BY ID DESC LIMIT 0,20";
 
-    $result = $wpdb->get_results($wpdb::prepare($query));
+    $result = $wpdb->get_results($wpdb->prepare($query));
     $rand_keys = array_rand($result, 10);
 
      foreach ($rand_keys as $rand_id){
