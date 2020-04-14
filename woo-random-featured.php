@@ -58,7 +58,7 @@ function GetRecentPosts(){
     global $wpdb;
     $prod = 'product';
 
-    $query = $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_type = %d ORDER BY ID DESC LIMIT 0,20", $prod );
+    $query = $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_type = %%d ORDER BY ID DESC LIMIT 0,20", $prod );
 
 
     $result = $wpdb->get_results($query);
