@@ -29,7 +29,7 @@ function plugin_settings_page_content(){
     
     ?><center><h1>WooCommerce Random Featured Products</h1></center><?php
 
-    echo "<form method='post' action=''>" . settings_fields( 'jt_wrf_admin_settings' ) . do_settings_sections( 'woo_random_featured' ) . "</form>";
+    echo "<form method='post' action=''>" . do_settings_sections( 'woo_random_featured' ) . settings_fields( 'jt_wrf_admin_settings' ) . "</form>";
     //RunFeatured();
     //echo "<h2>Done!</h2>";
 
