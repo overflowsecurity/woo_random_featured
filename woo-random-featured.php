@@ -45,6 +45,10 @@ function jt_wrf_settings_page(){
     add_submenu_page( 'woo_random_featured', 'WooCommerce Random Featured Products Settings', 'Settings', 'manage_options', 'woo_random_featured', 'jt_wrf_settings_page_content' );
 }
 
+function jt_wrf_settings_page_content(){
+    echo "This is a test!";
+}
+
 function jt_wrf_admin_settings(){
     register_setting( 'jt-wrf-settings', 'how_many_featured' );
     add_settings_section( 'jt-wrf-options', 'WooCommerce Random Featured', 'jt_wrf_options', 'woo_random_featured' );
