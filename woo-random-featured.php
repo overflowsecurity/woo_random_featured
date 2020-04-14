@@ -29,7 +29,10 @@ function plugin_settings_page_content(){
     
     ?><center><h1>WooCommerce Random Featured Products</h1></center><?php
 
-    echo "<form method='post' action=''>" . settings_fields( 'jt_wrf_admin_settings' ) . "</form>";
+    echo "<form method='post' action=''>";
+    settings_fields( 'jt_wrf_admin_settings' );
+    do_settings_sections( 'woo_random_featured' );
+     echo "</form>";
     //RunFeatured();
     //echo "<h2>Done!</h2>";
 
@@ -38,9 +41,12 @@ function plugin_settings_page_content(){
 
 function jt_wrf_admin_settings(){
     register_setting( 'jt-wrf-settings', 'how_many_featured' );
-
+    add_settings_section( 'jt-wrf-options', 'WooCommerce Random Featured Options', 'jt_wrf_options', 'woo_random_featured' );
 }
 
+function jt_wrf_options(){
+    echo "Testing Settings Page";
+}
 
 function CleanupFeatured(){
 
