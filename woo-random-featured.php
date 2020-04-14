@@ -29,9 +29,18 @@ function plugin_settings_page_content(){
     
     ?><center><h1>WooCommerce Random Featured Products</h1></center><?php
 
+    echo "<form method='post' action=''>" . settings_fields( 'jt_wrf_admin_settings' ) . "</form>";
     RunFeatured();
     echo "<h2>Done!</h2>";
+
+    add_action( 'admin_init', 'jt_wrf_admin_settings' );
 }
+
+function jt_wrf_admin_settings(){
+    register_setting( 'jt-wrf-settings', 'how_many_featured' );
+
+}
+
 
 function CleanupFeatured(){
 
