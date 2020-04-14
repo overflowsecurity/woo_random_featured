@@ -42,7 +42,7 @@ function plugin_settings_page_content(){
 
 function jt_wrf_admin_settings(){
     register_setting( 'jt-wrf-settings', 'how_many_featured' );
-    add_settings_section( 'jt-wrf-options', 'WooCommerce Random Featured Options', 'jt_wrf_options', 'woo_random_featured' );
+    add_settings_section( 'jt-wrf-options', 'WooCommerce Random Featured', 'jt_wrf_options', 'woo_random_featured' );
 }
 
 function jt_wrf_options(){
