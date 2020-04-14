@@ -37,13 +37,14 @@ function CleanupFeatured(){
 global $wpdb;
 $table = "wp_term_relationships";
 $term = term_exists('featured');
+$taxonomy = 'product_visibility';
 
 $ids = $wpdb->get_col( "SELECT object_id FROM $wpdb->term_relationships WHERE term_taxonomy_id = " . $term );
 
 if ( count( $ids ) > 0 ) 
     foreach($ids as $id){
         echo $id;
-        $wpdb->delete( $table, array( 'object_id' => $id ) );
+        wp_remove_object_terms( $id, $term, $taxonomy );
         
 }
 
