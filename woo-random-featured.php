@@ -38,6 +38,7 @@ global $wpdb;
 $table = "wp_term_relationships";
 $term = term_exists('featured');
 $tag = array( (int)$term );
+var_dump($tag);
 $taxonomy = 'product_visibility';
 
 $ids = $wpdb->get_col( "SELECT object_id FROM $wpdb->term_relationships WHERE term_taxonomy_id = " . $term );
@@ -73,6 +74,7 @@ function SetFeaturedProducts($rand_ids){
     global $wpdb;
     $term = term_exists('featured');
     $tag = array( (int)$term );
+    var_dump($tag);
     $taxonomy = 'product_visibility';
     $append = True;
     foreach ($rand_ids as $id){
