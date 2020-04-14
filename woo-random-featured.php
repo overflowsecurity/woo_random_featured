@@ -75,7 +75,7 @@ function SetFeaturedProducts($rand_ids){
     $append = True;
     foreach ($rand_ids as $id){
 
-        wp_set_object_terms( $id, $tag, $taxonomy, TRUE );
+        wp_set_object_terms( $id, $tag, $taxonomy);
     }
 }
 
