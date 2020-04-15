@@ -106,6 +106,7 @@ function GetRecentPosts(){
      foreach ($rand_keys as $rand_id){
         $randarray[] = $result[$rand_id]->ID;
     } 
+    $item_count = "";
     return $randarray;
 }
 
