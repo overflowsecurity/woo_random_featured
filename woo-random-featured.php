@@ -39,6 +39,7 @@ function plugin_settings_page_content(){
     //RunFeatured();
     //echo "<h2>Done!</h2>";
 
+    echo get_option( 'jt_when_to_change' );
 }
 
 function jt_wrf_display_options(){
