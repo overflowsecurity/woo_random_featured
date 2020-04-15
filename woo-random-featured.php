@@ -150,7 +150,7 @@ add_action('admin_menu', 'create_plugin_settings_page');
 add_action( 'on_woo_featured_cron_hook', 'RunFeatured' );
 add_filter( 'cron_schedules', 'on_add_cron_interval' );
 add_action( 'admin_init', 'jt_wrf_display_options' );
-add_action('added_option', 'reconfigure_options');
+//add_action('added_option', 'reconfigure_options');
 add_action('updated_option', 'reconfigure_options');
 
 ?>
