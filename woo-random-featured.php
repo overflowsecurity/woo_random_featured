@@ -38,7 +38,6 @@ function plugin_settings_page_content(){
     
     //RunFeatured();
     //echo "<h2>Done!</h2>";
-    var_dump(get_option( 'jt_num_to_keep' ));
 
 }
 
@@ -106,7 +105,7 @@ function GetRecentPosts(){
      foreach ($rand_keys as $rand_id){
         $randarray[] = $result[$rand_id]->ID;
     } 
-    $item_count = "";
+    //$item_count = "";
     return $randarray;
 }
 
