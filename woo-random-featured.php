@@ -54,14 +54,14 @@ function test_header_func(){echo "This is a test";}
 function jt_num_to_keep(){
 
     ?>
-    <input type="text" name="jt_num_to_keep" id="jt_num_to_keep" value="" />
+    <input type="text" name="jt_num_to_keep" id="jt_num_to_keep" value="<?php echo get_option( 'jt_num_to_keep' ); ?>" />
     <?php
 }
 
 function jt_when_to_change(){
 
     ?>
-    <input type="text" name="jt_when_to_change" id="jt_when_to_change" value="" />
+    <input type="text" name="jt_when_to_change" id="jt_when_to_change" value="<?php echo get_option( 'jt_when_to_change' ); ?>" />
     <?php
 }
 
