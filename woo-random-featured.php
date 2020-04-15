@@ -56,14 +56,14 @@ function jt_header_func(){echo "This will configured various options associated 
 function jt_num_to_keep(){
 
     ?>
-    <input type="text" name="jt_num_to_keep" id="jt_num_to_keep" value="<?php echo get_option( 'jt_num_to_keep' ); ?>" />
+    <input type="number" name="jt_num_to_keep" id="jt_num_to_keep" value="<?php echo get_option( 'jt_num_to_keep' ); ?>" />
     <?php
 }
 
 function jt_when_to_change(){
 
     ?>
-    <input type="text" name="jt_when_to_change" id="jt_when_to_change" value="<?php echo get_option( 'jt_when_to_change' ); ?>" />
+    <input type="number" name="jt_when_to_change" id="jt_when_to_change" value="<?php echo get_option( 'jt_when_to_change' ); ?>" />
     <?php
 }
 
@@ -101,7 +101,7 @@ function GetRecentPosts(){
 
     $item_count = get_option( 'jt_num_to_keep' );
     $result = $wpdb->get_results($query);
-    $rand_keys = array_rand($result, (int)$item_count);
+    $rand_keys = array_rand($result, $item_count);
 
      foreach ($rand_keys as $rand_id){
         $randarray[] = $result[$rand_id]->ID;
@@ -134,7 +134,7 @@ function RunFeatured(){
  function on_add_cron_interval( $schedules ) { 
     $interval = get_option( 'jt_when_to_change' );
     $schedules['one_week'] = array(
-        'interval' => (int)$interval,
+        'interval' => $interval,
         'display'  => esc_html__( 'Every Week' ), );
     return $schedules;
 } 
