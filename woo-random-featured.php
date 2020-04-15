@@ -33,8 +33,6 @@ function plugin_settings_page_content(){
     <form method="post" action="options.php"> <?php
     settings_fields( "header_section" );
     do_settings_sections( "woo_random_featured" );
-    add_action('added_option', 'reconfigure_options');
-    add_action('updated_option', 'reconfigure_options');
     submit_button();
     ?></form><?php
     
@@ -48,7 +46,7 @@ function jt_wrf_display_options(){
 
     add_settings_section( 'header_section', 'Product Selection Settings', 'jt_header_func', 'woo_random_featured' );
     add_settings_field( 'jt_num_to_keep', 'How Many Prodcuts to Keep', 'jt_num_to_keep', 'woo_random_featured', 'header_section' );
-    add_settings_field( 'jt_when_to_change', 'How Often Should Featured Products Change', 'jt_when_to_change', 'woo_random_featured', 'header_section' );
+    add_settings_field( 'jt_when_to_change', 'How Often Should Featured Products Change (In Seconds)', 'jt_when_to_change', 'woo_random_featured', 'header_section' );
     register_setting( 'header_section', 'jt_num_to_keep' );
     register_setting( 'header_section', 'jt_when_to_change' );
 }
@@ -69,8 +67,8 @@ function jt_when_to_change(){
     <?php
 }
 
-function Reconfigure_Options(){
-    var_dump('$page_title');
+function reconfigure_options(){
+    RunFeatured();
 }
 
 
@@ -149,5 +147,7 @@ add_action('admin_menu', 'create_plugin_settings_page');
 add_action( 'on_woo_featured_cron_hook', 'RunFeatured' );
 add_filter( 'cron_schedules', 'on_add_cron_interval' );
 add_action( 'admin_init', 'jt_wrf_display_options' );
+add_action('added_option', 'reconfigure_options');
+add_action('updated_option', 'reconfigure_options');
 
 ?>
