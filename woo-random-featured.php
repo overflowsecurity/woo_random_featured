@@ -124,8 +124,8 @@ function SetFeaturedProducts($rand_ids){
 
 function RunFeatured(){
     CleanupFeatured();
-    //$rand_ids = GetRecentPosts();
-     //SetFeaturedProducts($rand_ids);
+    $rand_ids = GetRecentPosts();
+    SetFeaturedProducts($rand_ids);
 }
 
 
