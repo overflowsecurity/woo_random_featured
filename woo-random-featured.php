@@ -32,13 +32,15 @@ function plugin_settings_page_content(){
     ?>
     <form method='post' action=''>
     <?php settings_fields( 'jt_wrf_admin_settings' );
-    do_settings_sections( 'woo_random_featured' );
+    //do_settings_sections( 'woo_random_featured' );
     ?></form><?php
     //RunFeatured();
     //echo "<h2>Done!</h2>";
 
-    add_action( 'admin_init', 'jt_wrf_admin_settings' );
+    //add_action( 'admin_init', 'jt_wrf_admin_settings' );
 }
+
+add_action( 'admin_init', 'jt_wrf_admin_settings' );
 
 function jt_wrf_settings_page(){
 
@@ -49,14 +51,14 @@ function jt_wrf_settings_page_content(){
     echo "This is a test!";
 }
 
-function jt_wrf_admin_settings(){
+/* function jt_wrf_admin_settings(){
     register_setting( 'jt-wrf-settings', 'how_many_featured' );
     add_settings_section( 'jt-wrf-options', 'WooCommerce Random Featured', 'jt_wrf_options', 'woo_random_featured' );
 }
 
 function jt_wrf_options(){
     echo "<h1>Testing Settings Page</h1>";
-}
+} */
 
 function CleanupFeatured(){
 
