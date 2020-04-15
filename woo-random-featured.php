@@ -44,8 +44,8 @@ function plugin_settings_page_content(){
 function jt_wrf_display_options(){
 
     add_settings_section( 'header_section', 'Pluggin Settings', 'test_header_func', 'woo_random_featured' );
-    add_settings_field( 'jt-num-to-keep', 'How Many Prodcuts to Keep', 'jt_num_to_keep', 'woo_random_featured', 'header_section' );
-    add_settings_field( 'jt-when-to-change', 'How Often Should Featured Products Change>', 'jt_when_to_change', 'woo_random_featured', 'header_section' );
+    add_settings_field( 'jt_num_to_keep', 'How Many Prodcuts to Keep', 'jt_num_to_keep', 'woo_random_featured', 'header_section' );
+    add_settings_field( 'jt_when_to_change', 'How Often Should Featured Products Change>', 'jt_when_to_change', 'woo_random_featured', 'header_section' );
     register_setting( 'header_section', 'jt-num-to-keep' );
     register_setting( 'header_section', 'jt-when-to-change' );
 }
