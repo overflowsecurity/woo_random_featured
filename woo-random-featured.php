@@ -133,7 +133,7 @@ function RunFeatured(){
  function on_add_cron_interval( $schedules ) { 
     $interval = get_option( 'jt_when_to_change' );
     $schedules['one_week'] = array(
-        'interval' => (int)$interval),
+        'interval' => (int)$interval,
         'display'  => esc_html__( 'Every Week' ), );
     return $schedules;
 } 
