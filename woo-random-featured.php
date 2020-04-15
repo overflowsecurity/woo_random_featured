@@ -33,8 +33,9 @@ function plugin_settings_page_content(){
     <form method='post' action=''> <?php
     settings_fields( "header_section" );
     do_settings_sections( "woo_random_featured" );
-    submit_button();
+    
     ?></form><?php
+    submit_button();
     //RunFeatured();
     //echo "<h2>Done!</h2>";
 
