@@ -26,39 +26,47 @@ function create_plugin_settings_page()
 function plugin_settings_page_content(){
     global $content;
     global $wpdb;
-    
+
+    submit_button();
     ?><center><h1>WooCommerce Random Featured Products</h1></center><?php
 
     ?>
-    <form method='post' action=''>
-    <?php settings_fields( 'jt_wrf_admin_settings' );
-    //do_settings_sections( 'woo_random_featured' );
+    <form method='post' action=''> <?php
+    settings_fields( "header_section" );
+    do_settings_sections( "woo_random_featured" );
     ?></form><?php
     //RunFeatured();
     //echo "<h2>Done!</h2>";
 
-    //add_action( 'admin_init', 'jt_wrf_admin_settings' );
 }
 
-add_action( 'admin_init', 'jt_wrf_admin_settings' );
+function jt_wrf_display_options(){
 
-function jt_wrf_settings_page(){
-
-    add_submenu_page( 'admin.php?page=woo_random_featured', 'Featured Settings', 'Settings', 'manage_options', 'woo_random_featured', 'jt_wrf_settings_page_content' );
+    add_settings_section( 'header_section', 'Pluggin Settings', 'test_header_func', 'woo_random_featured' );
+    add_settings_field( 'jt-num-to-keep', 'How Many Prodcuts to Keep', 'jt_num_to_keep', 'woo_random_featured', 'header_section' );
+    add_settings_field( 'jt-when-to-change', 'How Often Should Featured Products Change>', 'jt_when_to_change', 'woo_random_featured', 'header_section' );
+    register_setting( 'header_section', 'jt-num-to-keep' );
+    register_setting( 'header_section', 'jt-when-to-change' );
 }
 
-function jt_wrf_settings_page_content(){
-    echo "This is a test!";
+function test_header_func(){echo "This is a test";}
+
+function jt_num_to_keep(){
+
+    ?>
+    <input type="text" name="jt_num_to_keep" id="jt_num_to_keep" value="" />
+    <?php
 }
 
-/* function jt_wrf_admin_settings(){
-    register_setting( 'jt-wrf-settings', 'how_many_featured' );
-    add_settings_section( 'jt-wrf-options', 'WooCommerce Random Featured', 'jt_wrf_options', 'woo_random_featured' );
+function jt_when_to_change(){
+
+    ?>
+    <input type="text" name="jt_when_to_change" id="jt_when_to_change" value="" />
+    <?php
 }
 
-function jt_wrf_options(){
-    echo "<h1>Testing Settings Page</h1>";
-} */
+
+
 
 function CleanupFeatured(){
 
@@ -133,5 +141,5 @@ if ( ! wp_next_scheduled( 'on_woo_featured_cron_hook' ) ) {
 add_action('admin_menu', 'create_plugin_settings_page');
 add_action( 'on_woo_featured_cron_hook', 'RunFeatured' );
 add_filter( 'cron_schedules', 'on_add_cron_interval' );
-add_action( 'admin_menu', 'jt_wrf_settings_page' )
+add_action( 'admin_init', 'jt_wrf_display_options' );
 ?>
