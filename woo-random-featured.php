@@ -44,7 +44,7 @@ add_action( 'admin_init', 'jt_wrf_admin_settings' );
 
 function jt_wrf_settings_page(){
 
-    add_submenu_page( 'woo_random_featured', 'WooCommerce Random Featured Products Settings', 'Settings', 'manage_options', 'woo_random_featured', 'jt_wrf_settings_page_content' );
+    add_submenu_page( 'admin.php?page=woo_random_featured', 'Featured Settings', 'Settings', 'manage_options', 'woo_random_featured', 'jt_wrf_settings_page_content' );
 }
 
 function jt_wrf_settings_page_content(){
