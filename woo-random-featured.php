@@ -138,6 +138,9 @@ function RunFeatured(){
     return $schedules;
 } 
 
+$timestamp = wp_next_scheduled( 'on_woo_featured_cron_hook' );
+wp_unschedule_event( $timestamp, 'on_woo_featured_cron_hook' );
+
 if ( ! wp_next_scheduled( 'on_woo_featured_cron_hook' ) ) {
     wp_schedule_event( time(), 'one_week', 'on_woo_featured_cron_hook' );
 }
