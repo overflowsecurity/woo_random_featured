@@ -39,20 +39,19 @@ function plugin_settings_page_content(){
     //RunFeatured();
     //echo "<h2>Done!</h2>";
 
-    $test = get_option( 'jt_when_to_change' );
-    var_dump($test);
+
 }
 
 function jt_wrf_display_options(){
 
-    add_settings_section( 'header_section', 'Pluggin Settings', 'test_header_func', 'woo_random_featured' );
+    add_settings_section( 'header_section', 'Product Selection Settings', 'jt_header_func', 'woo_random_featured' );
     add_settings_field( 'jt_num_to_keep', 'How Many Prodcuts to Keep', 'jt_num_to_keep', 'woo_random_featured', 'header_section' );
     add_settings_field( 'jt_when_to_change', 'How Often Should Featured Products Change', 'jt_when_to_change', 'woo_random_featured', 'header_section' );
     register_setting( 'header_section', 'jt_num_to_keep' );
     register_setting( 'header_section', 'jt_when_to_change' );
 }
 
-function test_header_func(){echo "This is a test";}
+function jt_header_func(){echo "This will configured various options associated with the plugin.";}
 
 function jt_num_to_keep(){
 
@@ -68,7 +67,9 @@ function jt_when_to_change(){
     <?php
 }
 
-
+function Reconfigure_Options(){
+    echo "This is a test";
+}
 
 
 function CleanupFeatured(){
@@ -98,9 +99,9 @@ function GetRecentPosts(){
 
     $query = $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_type = %s ORDER BY ID DESC LIMIT 0,20", $prod );
 
-
+    $item_count = get_option( 'jt_num_to_keep' );
     $result = $wpdb->get_results($query);
-    $rand_keys = array_rand($result, 10);
+    $rand_keys = array_rand($result, (int)$item_count);
 
      foreach ($rand_keys as $rand_id){
         $randarray[] = $result[$rand_id]->ID;
@@ -130,8 +131,9 @@ function RunFeatured(){
 
 
  function on_add_cron_interval( $schedules ) { 
+    $interval = get_option( 'jt_when_to_change' );
     $schedules['one_week'] = array(
-        'interval' => 600000,
+        'interval' => (int)$interval),
         'display'  => esc_html__( 'Every Week' ), );
     return $schedules;
 } 
@@ -145,4 +147,6 @@ add_action('admin_menu', 'create_plugin_settings_page');
 add_action( 'on_woo_featured_cron_hook', 'RunFeatured' );
 add_filter( 'cron_schedules', 'on_add_cron_interval' );
 add_action( 'admin_init', 'jt_wrf_display_options' );
+add_action('added_option', 'reconfigure_options');
+add_action('updated_option', 'reconfigure_options');
 ?>
