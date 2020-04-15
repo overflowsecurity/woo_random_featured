@@ -38,7 +38,7 @@ function plugin_settings_page_content(){
     
     //RunFeatured();
     //echo "<h2>Done!</h2>";
-
+    var_dump(get_option( 'jt_num_to_keep' ));
 
 }
 
