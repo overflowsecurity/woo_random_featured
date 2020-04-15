@@ -30,7 +30,7 @@ function plugin_settings_page_content(){
     ?><center><h1>WooCommerce Random Featured Products</h1></center><?php
 
     ?>
-    <form method='post' action=''> <?php
+    <form method='post' action='options.php'> <?php
     settings_fields( "header_section" );
     do_settings_sections( "woo_random_featured" );
     
