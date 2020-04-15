@@ -38,8 +38,8 @@ function plugin_settings_page_content(){
     
     //RunFeatured();
     //echo "<h2>Done!</h2>";
-    //add_action('register_setting', 'reconfigure_options');
-    add_action('register_setting', 'reconfigure_options');
+add_action('added_option', 'reconfigure_options');
+add_action('updated_option', 'reconfigure_options');
 
 }
 
@@ -69,7 +69,7 @@ function jt_when_to_change(){
 }
 
 function Reconfigure_Options(){
-    echo "This is a test";
+    var_dump('$page_title');
 }
 
 
