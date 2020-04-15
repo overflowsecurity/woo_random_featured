@@ -33,13 +33,14 @@ function plugin_settings_page_content(){
     <form method="post" action="options.php"> <?php
     settings_fields( "header_section" );
     do_settings_sections( "woo_random_featured" );
+    add_action('added_option', 'reconfigure_options');
+    add_action('updated_option', 'reconfigure_options');
     submit_button();
     ?></form><?php
     
     //RunFeatured();
     //echo "<h2>Done!</h2>";
-add_action('added_option', 'reconfigure_options');
-add_action('updated_option', 'reconfigure_options');
+
 
 }
 
