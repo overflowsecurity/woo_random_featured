@@ -48,6 +48,20 @@ function jt_wrf_display_options(){
     add_settings_field( 'jt_when_to_change', 'How Often Should Featured Products Change (In Seconds)', 'jt_when_to_change', 'woo_random_featured', 'header_section' );
     register_setting( 'header_section', 'jt_num_to_keep' );
     register_setting( 'header_section', 'jt_when_to_change' );
+
+    <?php
+$prods_args = array(
+	'post_type' => 'product',
+	'no_found_rows' => true,  // Skips SQL to count rows - a speed improvement.
+	'post_status' => 'publish',
+	'ignore_sticky_posts' => true,  // Don't move sticky posts to top - a speed improvement.
+	'posts_per_page' => -1,
+	'fields' => 'ids',  // Only return product IDs
+);
+
+$pq = new WP_Query( $prods_args );
+// No need for a loop - retrieve all the IDs in one go.
+$product_ids = $pq->posts;
 }
 
 function jt_header_func(){echo "This will configured various options associated with the plugin.";}
