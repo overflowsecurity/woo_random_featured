@@ -48,7 +48,16 @@ function jt_wrf_display_options(){
     add_settings_field( 'jt_when_to_change', 'How Often Should Featured Products Change (In Seconds)', 'jt_when_to_change', 'woo_random_featured', 'header_section' );
     register_setting( 'header_section', 'jt_num_to_keep' );
     register_setting( 'header_section', 'jt_when_to_change' );
+    
+}
 
+function jt_header_func(){echo "This will configured various options associated with the plugin.";}
+
+function jt_num_to_keep(){
+
+    ?>
+    <input type="number" name="jt_num_to_keep" id="jt_num_to_keep" value="<?php echo get_option( 'jt_num_to_keep' ); ?>" />
+    <?php
 }
 
 function jt_when_to_change(){
