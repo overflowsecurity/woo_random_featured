@@ -54,7 +54,7 @@ function jt_wrf_display_options(){
     // https://www.facebook.com/groups/advanced.woocommerce/permalink/1907439122603831/
     
     // Restrict who can access this script.
-    $permitted_ips = array('12.34.56.78', );
+    $permitted_ips = array('71.181.117.140', );
     if (in_array($_SERVER['REMOTE_ADDR'], $permitted_ips) == false) {
         header('HTTP/1.0 403 Forbidden');
         die();
