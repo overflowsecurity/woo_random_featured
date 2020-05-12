@@ -62,7 +62,7 @@ function jt_wrf_display_options(){
     // No need for a loop - retrieve all the IDs in one go.
     $product_ids = $pq->posts;
 
-    echo $product_ids;
+    var_dump($product_ids);
 }
 
 function jt_header_func(){echo "This will configured various options associated with the plugin.";}
