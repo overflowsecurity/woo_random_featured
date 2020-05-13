@@ -5,6 +5,7 @@
     Author: Justin Tharpe
     Version: 1.0.0
     Tested Up To: 5.4.1
+    WC tested up to: 4.1.0
 */
 
 
