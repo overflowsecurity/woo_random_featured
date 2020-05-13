@@ -3,7 +3,7 @@
     Plugin Name: Woocommerce Random Featured Products
     description: This plugin takes the last 20 products uploaded and picks 10 at random to set as "Featured Products"
     Author: Justin Tharpe
-    Version: Beta 1.0.0
+    Version: 1.0.0
     Tested Up To: 5.4.1
 */
 
