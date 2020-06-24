@@ -88,10 +88,7 @@ if ( count( $ids ) > 0 )
     foreach($ids as $id){
         wp_remove_object_terms( $id, $tag, $taxonomy );
         
-}
-
-else
-    echo "No Featured Products :(";
+    }    
 }
 
 function GetRecentPosts(){
